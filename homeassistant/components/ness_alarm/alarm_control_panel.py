@@ -107,6 +107,10 @@ class NessAlarmPanel(alarm.AlarmControlPanelEntity):
             self._attr_state = ARMING_MODE_TO_STATE.get(
                 arming_mode, STATE_ALARM_ARMED_AWAY
             )
+        elif arming_state == ArmingState.ARMED_MONITOR:
+            self._attr_state = ARMING_MODE_TO_STATE.get(
+                arming_mode, STATE_ALARM_ARMED_HOME
+            )
         elif arming_state == ArmingState.ENTRY_DELAY:
             self._attr_state = STATE_ALARM_PENDING
         elif arming_state == ArmingState.TRIGGERED:
